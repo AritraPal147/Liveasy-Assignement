@@ -131,7 +131,7 @@ class _LanguageSelectScreenState extends State<LanguageSelectScreen>
             // TODO: Implement waves
             const Positioned(
               bottom: 0,
-              child: Placeholder(),
+              child: Text('incomplete'),
             )
           ],
         ),
