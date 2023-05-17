@@ -7,10 +7,14 @@ class RectangleButton extends StatelessWidget {
     super.key,
     required this.title,
     required this.onPressed,
+    required this.width,
   });
 
   /// [title] is the Title of the button (basically the button text)
   final String title;
+
+  /// [width] is the width of the button
+  final double width;
 
   /// [onPressed] is the event that occurs when the button is pressed
   final VoidCallback? onPressed;
@@ -18,18 +22,18 @@ class RectangleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16.0),
+      padding: EdgeInsets.symmetric(vertical: SizeConfig.blockSizeVertical * 2),
       child: Material(
         color: Constants.buttonColor,
         child: MaterialButton(
           onPressed: onPressed,
-          minWidth: SizeConfig.screenWidth * 0.55,
+          minWidth: width,
           height: SizeConfig.blockSizeVertical * 2,
           child: Text(
             title,
             style: TextStyle(
               color: Colors.white,
-              fontSize: SizeConfig.blockSizeVertical * 2,
+              fontSize: SizeConfig.blockSizeVertical * 1.75,
               fontWeight: FontWeight.bold,
             ),
           ),

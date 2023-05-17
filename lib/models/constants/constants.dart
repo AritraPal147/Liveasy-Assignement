@@ -8,4 +8,5 @@ class Constants {
   static const List<String> dropDownMenuItems = ['English', 'Hindi', 'Bengali'];
 
   static const next = 'NEXT';
+  static const continueText = 'CONTINUE';
 }

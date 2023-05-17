@@ -12,6 +12,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  late String phoneNumber;
+
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
@@ -65,33 +67,74 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: SizeConfig.blockSizeVertical * 4,
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: SizeConfig.blockSizeHorizontal * 2),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.blockSizeHorizontal * 2,
+                    vertical: SizeConfig.blockSizeVertical * 0.65,
+                  ),
                   width: SizeConfig.screenWidth * 0.8,
-                  decoration: BoxDecoration(border: Border.all(
-                    color: Colors.black,
-                    width: SizeConfig.blockSizeVertical * 0.2,)),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.black,
+                      width: SizeConfig.blockSizeVertical * 0.15,
+                    ),
+                  ),
                   child: Row(
                     children: [
-                      ImageIcon(AssetImage('assets/images/indian_flag.png')),
-                      Text('-'),
-
+                      Image.asset(
+                        'assets/images/indian_flag.png',
+                        height: SizeConfig.blockSizeVertical * 3,
+                      ),
+                      SizedBox(
+                        width: SizeConfig.blockSizeHorizontal * 3.5,
+                      ),
+                      Text(
+                        '+91',
+                        style: TextStyle(
+                          fontSize: SizeConfig.blockSizeVertical * 1.5,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        width: SizeConfig.blockSizeHorizontal * 3.5,
+                      ),
+                      Text(
+                        '-',
+                        style: TextStyle(
+                          fontSize: SizeConfig.blockSizeVertical * 2,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        width: SizeConfig.blockSizeHorizontal * 3.5,
+                      ),
+                      const Flexible(
+                        child: TextField(
+                          // TODO: implement onChanged
+                          // onChanged: null,
+                          decoration: InputDecoration(hintText: 'Mobile Number', border: InputBorder.none),
+                          keyboardType: TextInputType.phone,
+                        ),
+                      )
                     ],
-                  )
+                  ),
                 ),
                 SizedBox(
                   height: SizeConfig.blockSizeVertical,
                 ),
                 RectangleButton(
-                  title: Constants.next,
-                  onPressed: () => Navigator.pushNamed(context, '/login'),
+                  title: Constants.continueText,
+                  width: SizeConfig.screenWidth * 0.8,
+                  onPressed: () => Navigator.pushNamed(context, '/otp'),
                 ),
               ],
             ),
 
-            // TODO: Implement waves
-            const Positioned(
-              bottom: 0,
-              child: Text('Incomplete'),
+            // TODO: Implement waves and remove them if keyboard is shown
+            const Flexible(
+              child: Positioned(
+                bottom: 0,
+                child: Text('Incomplete'),
+              ),
             )
           ],
         ),

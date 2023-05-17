@@ -123,6 +123,7 @@ class _LanguageSelectScreenState extends State<LanguageSelectScreen>
                 ),
                 RectangleButton(
                   title: Constants.next,
+                  width: SizeConfig.screenWidth * 0.55,
                   onPressed: () => Navigator.pushNamed(context, '/login'),
                 ),
               ],
